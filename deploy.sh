@@ -9,6 +9,6 @@ fi
 
 docker-compose stop || exit
 
-cp services/python/*.py shared/python/
+reload_scripts.sh
 
 docker-compose up --build -d

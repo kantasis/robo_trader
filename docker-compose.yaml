@@ -4,7 +4,12 @@ services:
    trader_python_label:
       container_name: trader_python_container
       image: trader_python_image
-      build: ./services/python
+      build: 
+         context: ./services/python
+         args:
+            ALPACA_ENDPOINT: ${ALPACA_ENDPOINT}
+            ALPACA_KEY: ${ALPACA_KEY}
+            ALPACA_SECRET: ${ALPACA_SECRET}
       volumes:
          - ./shared/python:/shared
       # environment:
