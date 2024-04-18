@@ -1,0 +1,11 @@
+version: "3"
+services:
+
+   trader_python_label:
+      container_name: trader_python_container
+      image: trader_python_image
+      build: ./services/python
+      volumes:
+         - ./shared/python:/shared
+      # environment:
+      #    - GK_PWD=${PWD}
