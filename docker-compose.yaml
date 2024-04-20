@@ -12,5 +12,6 @@ services:
             ALPACA_SECRET: ${ALPACA_SECRET}
       volumes:
          - ./shared/python:/shared
+         - ./scripts:/scripts
       # environment:
       #    - GK_PWD=${PWD}
