@@ -6,12 +6,8 @@ services:
       image: trader_python_image
       build: 
          context: ./services/python
-         args:
-            ALPACA_ENDPOINT: ${ALPACA_ENDPOINT}
-            ALPACA_KEY: ${ALPACA_KEY}
-            ALPACA_SECRET: ${ALPACA_SECRET}
       volumes:
          - ./shared/python:/shared
          - ./scripts:/scripts
-      # environment:
-      #    - GK_PWD=${PWD}
+      env_file:
+         - .private/python.env
