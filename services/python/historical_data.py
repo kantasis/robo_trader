@@ -15,16 +15,23 @@ ticker_name="GE"
 
 # Main
 
-trading_client = TradingClient(
+data_client = StockHistoricalDataClient(
    alpaca_key_str,
    alpaca_secret_str,
 )
 
-print(trading_client.get_account().account_number)
-print(trading_client.get_account().buying_power)
+requestParams_dict = {
+   "symbol_or_symbols":ticker_name,
+   "start":datetime(2024, 4, 18, 14, 00),
+   "end":datetime(2024, 4, 18, 14, 30),
+}
 
+requestParams_obj = StockTradesRequest( **requestParams_dict )
+trades_obj = data_client.get_stock_trades(requestParams_obj)
 
+# print(trades_obj)
 
-
-
+for trade in trades_obj.data[ticker_name]:
+   print(trade)
+   break
 
