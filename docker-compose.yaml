@@ -6,8 +6,8 @@ services:
       image: trader_python_image
       build: 
          context: ./services/python
+      env_file:
+         - ./services/python/.env
       volumes:
          - ./shared/python:/shared
          - ./scripts:/scripts
-      env_file:
-         - .private/python.env
